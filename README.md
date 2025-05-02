@@ -1,1 +1,0 @@
-# SATSolving-S2025
