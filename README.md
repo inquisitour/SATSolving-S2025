@@ -86,10 +86,3 @@ minisat output/myciel3_4_coloring.cnf results/result_myciel3_4.txt
 
 - The DIMACS graph format is used for input graphs: [DIMACS Format](https://mat.tepper.cmu.edu/COLOR/instances.html)
 - The DIMACS CNF format is used for output SAT problems
-
-## Future Improvements
-
-Potential improvements to the implementation could include:
-- Support for alternative encodings that might be more efficient
-- Extraction and visualization of the coloring solution from SAT solver output
-- Performance optimizations for handling larger graphs
