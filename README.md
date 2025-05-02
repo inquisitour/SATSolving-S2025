@@ -10,7 +10,7 @@ Graph coloring is a classic NP-complete problem that asks whether a graph can be
 
 ```
 SATSolving-S2025/
-└── graph-coloring-code/           # Graph coloring implementation folder
+└── graph-coloring/           # Graph coloring implementation folder
     ├── graph_coloring.py          # Main implementation
     ├── test/                      # Input graph files
     │   ├── myciel3.col            # Mycielski graph (chromatic number 4)
