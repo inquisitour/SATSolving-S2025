@@ -1,0 +1,71 @@
+N-Queens Solution Count Results
+================================
+
+Implementation: Incremental SAT solving using PySAT Glucose3 solver
+Platform: Ubuntu Linux
+Python: 3.x with python-sat library
+
+Test Results (All verified against OEIS A000170):
+=================================================
+
+N=4:  2 solutions ✓ (Generated 80 clauses, 16 variables)
+      - Shows individual solutions for small cases
+      - Runtime: < 1 second
+
+N=5:  10 solutions ✓ (Generated 165 clauses, 25 variables)  
+      - Shows all 10 distinct solutions
+      - Runtime: < 1 second
+
+N=6:  4 solutions ✓ (Generated 296 clauses, 36 variables)
+      - Shows all 4 distinct solutions
+      - Runtime: < 1 second
+
+N=8:  92 solutions ✓ (Generated 736 clauses, 64 variables)
+      - Progress reporting every 10 solutions
+      - Runtime: ~2-3 seconds
+
+N=9:  352 solutions ✓ (Generated 1065 clauses, 81 variables)
+      - Progress reporting shows steady enumeration
+      - Runtime: ~10-15 seconds
+
+N=10: 724 solutions ✓ (Generated 1480 clauses, 100 variables)
+      - Largest test case, significant enumeration
+      - Runtime: ~30-45 seconds
+
+Verification Status:
+===================
+All results perfectly match the known OEIS sequence A000170:
+https://oeis.org/A000170
+
+Expected: 1, 0, 0, 2, 10, 4, 40, 92, 352, 724, 2680, 14200, ...
+Our results:     -, -, -, 2, 10, 4,  -, 92, 352, 724
+
+Algorithm Performance:
+=====================
+- SAT encoding scales as expected: O(n^2) variables, O(n^3) clauses
+- Incremental solving efficiently enumerates all solutions
+- Solution blocking prevents duplicate solutions
+- Progress reporting for larger instances (n≥8)
+- Memory usage remains reasonable for tested sizes
+
+Implementation Features:
+=======================
+✓ Correct SAT encoding with all N-Queens constraints
+✓ Row constraints: exactly one queen per row
+✓ Column constraints: at most one queen per column  
+✓ Diagonal constraints: both directions handled
+✓ Incremental SAT solving with solution enumeration
+✓ Automatic verification against known results
+✓ Clean output formatting and progress reporting
+✓ Robust error handling and input validation
+
+Conclusion:
+===========
+The incremental SAT approach successfully solves the N-Queens 
+solution counting problem. All test cases produce correct results
+that match the authoritative OEIS sequence, demonstrating the
+correctness of both the SAT encoding and the enumeration algorithm.
+
+The implementation handles reasonable problem sizes efficiently
+and could be extended to larger instances with appropriate
+computational resources.
