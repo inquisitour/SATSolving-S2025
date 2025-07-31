@@ -6,7 +6,7 @@ This repository contains implementations and solutions for the SAT Solving cours
 
 ```
 SATSolving-S2025/
-├── graph-coloring-code/          # Exercise Sheet 1: Graph Coloring
+├── graph-coloring/          # Exercise 1: Graph Coloring
 │   ├── graph_coloring.py         # Main implementation
 │   ├── test/                     # Input graph files
 │   │   ├── myciel3.col           # Mycielski graph (chromatic number 4)
@@ -23,7 +23,7 @@ SATSolving-S2025/
 │       ├── result_myciel3_4.txt  # SAT result
 │       ├── result_queen5_5_3.txt # UNSAT result
 │       └── result_queen5_5_5.txt # SAT result
-└── n-queens-code/                # Exercise Sheet 2: N-Queens Problem
+└── n-queens/                # Exercise 2: N-Queens Problem
     ├── nqueens.py                # Main implementation
     ├── nqueens-env/              # Virtual environment
     ├── run_nqueens.sh            # Execution script
@@ -47,7 +47,7 @@ For a graph with n vertices and k colors, the encoding uses n×k Boolean variabl
 
 ### Usage
 ```bash
-cd graph-coloring-code
+cd graph-coloring
 python graph_coloring.py <graph_file> <k>
 ```
 
@@ -76,7 +76,7 @@ Implementation of an incremental SAT-based solution counter for the N-Queens pro
 
 ### Installation and Setup
 ```bash
-cd n-queens-code
+cd n-queens
 python3 -m venv nqueens-env
 ./nqueens-env/bin/pip install python-sat
 ```
