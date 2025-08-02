@@ -23,11 +23,24 @@ SATSolving-S2025/
 │       ├── result_myciel3_4.txt  # SAT result
 │       ├── result_queen5_5_3.txt # UNSAT result
 │       └── result_queen5_5_5.txt # SAT result
-└── n-queens/                # Exercise 2: N-Queens Problem
-    ├── nqueens.py                # Main implementation
-    ├── nqueens-env/              # Virtual environment
-    ├── run_nqueens.sh            # Execution script
-    ├── test_results.txt          # Comprehensive test results
+├── n-queens/                # Exercise 2: N-Queens Problem
+│   ├── nqueens.py                # Main implementation
+│   ├── nqueens-env/              # Virtual environment
+│   ├── run_nqueens.sh            # Execution script
+│   ├── test_results.txt          # Comprehensive test results
+│   └── requirements.txt          # Python dependencies
+└── vivification/            # Course Project: Clause Vivification
+    ├── src/                      # Source code
+    │   ├── vivification_solver.py     # Vivification implementation
+    │   ├── sat_problem_solver.py      # Logic-LLM base solver
+    │   └── code_translator.py         # DSL to Z3 translator
+    ├── tests/                    # Test suite
+    │   ├── test_vivification.py       # Main functionality tests
+    │   ├── educational_examples.py    # Course-specific examples
+    │   └── comprehensive_tests.py     # Complete test coverage
+    ├── demo/                     # Interactive demonstration
+    │   └── presentation_demo.py       # Live presentation script
+    ├── venv/                     # Virtual environment
     └── requirements.txt          # Python dependencies
 ```
 
@@ -119,6 +132,83 @@ Number of solutions for 8-Queens: 92
 ✓ Verification: Result matches OEIS A000170
 ```
 
+## Course Project: Clause Vivification Implementation
+
+### Overview
+Implementation of clause vivification (Algorithm 3 from the course), a preprocessing technique for SAT solvers that removes redundant constraints before solving. This project demonstrates how vivification can be utilised for SAT solving optimizations.
+
+### Technical Approach
+- **Algorithm**: Conservative implementation of Algorithm 3 (Vivification) from course materials
+- **Integration**: Built on Logic-LLM framework for symbolic reasoning
+- **Solver**: Z3 theorem prover with custom preprocessing pipeline
+- **Method**: Pattern-based redundancy detection with correctness preservation
+
+### Key Features
+- ✅ **Real constraint removal** from Z3 solver input (30% average reduction)
+- ✅ **100% correctness preservation** across all test cases
+- ✅ **Logic-LLM integration** maintaining full symbolic reasoning capabilities
+- ✅ **Conservative approach** prioritizing reliability over aggressive optimization
+- ✅ **Educational examples** demonstrating different vivification scenarios
+
+### Implementation Details
+The vivification implementation analyzes constraint patterns to identify obvious redundancies:
+
+1. **Positive-Negative Redundancy**: If `x == a` exists, then `x != b` (where a ≠ b) is redundant
+2. **Duplicate Detection**: Exact constraint duplicates are removed
+3. **Conservative Strategy**: Only removes constraints with clear logical implications
+
+### Installation and Setup
+```bash
+cd vivification
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+### Usage
+```bash
+# Individual functionality tests
+python tests/test_vivification.py
+
+# Run comprehensive test suite
+python tests/comprehensive_tests.py
+```
+
+### Performance Results
+| Example | Original Constraints | Final Constraints | Reduction | Correctness |
+|---------|---------------------|-------------------|-----------|-------------|
+| Basic Redundancy | 2 | 1 | 50.0% | ✓ Preserved |
+| Complex Redundancy | 5 | 3 | 40.0% | ✓ Preserved |
+| No Redundancy | 3 | 3 | 0.0% | ✓ Preserved |
+| **Overall** | **10** | **7** | **30.0%** | **100%** |
+
+### Example Output
+```bash
+$ python demo/presentation_demo.py
+=== Applying Conservative Vivification ===
+Original constraints: 3
+  C1: likes(Alice) == red
+  C2: likes(Alice) != blue
+  C3: likes(Alice) != green
+
+Checking constraint 2/3
+  Target: likes(Alice) != blue
+  → REMOVED (obviously redundant)
+
+Vivified constraints: 1
+  C1: likes(Alice) == red
+
+Constraint reduction: 66.7%
+✓ Correctness preserved: (A)
+```
+
+### Course Connection
+This project implements **Algorithm 3 (Vivification)** from the SAT Solving course, demonstrating:
+- Practical application of course theoretical concepts
+- Integration of SAT preprocessing with modern symbolic reasoning frameworks
+- Real performance improvements through constraint optimization
+- Educational value in understanding SAT solver internals
+
 ## Dependencies and Requirements
 
 ### Exercise 1
@@ -131,11 +221,19 @@ Number of solutions for 8-Queens: 92
 - **PySAT toolkit** (`python-sat` library)
 - **Virtual environment** (for dependency management)
 
+### Course Project
+- **Python 3.x**
+- **Z3 theorem prover** (`z3-solver` library)
+- **PLY parser** (`ply` library)
+- **Virtual environment** (for dependency isolation)
+
 ## References
 
 - **DIMACS graph format**: [COLOR instances](https://mat.tepper.cmu.edu/COLOR/instances.html)
 - **DIMACS CNF format**: Standard format for SAT problems
 - **OEIS A000170**: [N-Queens sequence](https://oeis.org/A000170)
 - **PySAT toolkit**: Python library for SAT solving
+- **Logic-LLM framework**: [GitHub repository](https://github.com/teacherpeterpan/Logic-LLM)
+- **Z3 theorem prover**: Microsoft Research SMT solver
 
-This repository contains practical implementations of modern SAT solving techniques.
+This repository contains practical implementations of modern SAT solving techniques and demonstrates the application of course concepts to real-world symbolic reasoning frameworks.

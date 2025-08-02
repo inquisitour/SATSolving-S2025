@@ -1,0 +1,9 @@
+# Core dependencies
+z3-solver==4.12.2.0
+
+# Logic-LLM dependencies (minimal set)
+ply==3.11
+
+# Standard scientific computing (if needed)
+numpy>=1.21.0
+setuptools==80.9.0
