@@ -203,7 +203,7 @@ Constraint reduction: 66.7%
 ```
 
 ### Course Connection
-This project implements **Algorithm 3 (Vivification)** from the SAT Solving course, demonstrating:
+This project implements **Algorithm 3 (Vivification)** from the SAT Solving course at TU Wien Austria, demonstrating:
 - Practical application of course theoretical concepts
 - Integration of SAT preprocessing with modern symbolic reasoning frameworks
 - Real performance improvements through constraint optimization
