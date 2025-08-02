@@ -94,10 +94,7 @@ python3 -m venv nqueens-env
 
 ### Usage
 ```bash
-# Using the virtual environment directly
-./nqueens-env/bin/python nqueens.py <N>
-
-# Or using the provided script
+# Using the shell script
 ./run_nqueens.sh <N>
 ```
 
