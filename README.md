@@ -88,13 +88,14 @@ Implementation of an incremental SAT-based solution counter for the N-Queens pro
 ### Installation and Setup
 ```bash
 cd n-queens
-python3 -m venv nqueens-env
-./nqueens-env/bin/pip install python-sat
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 ```
 
 ### Usage
 ```bash
-# Using the shell script
+# Run the shell script
 ./run_nqueens.sh <N>
 ```
 
