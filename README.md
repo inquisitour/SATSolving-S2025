@@ -25,7 +25,6 @@ SATSolving-S2025/
 │       └── result_queen5_5_5.txt # SAT result
 ├── n-queens/                # Exercise 2: N-Queens Problem
 │   ├── nqueens.py                # Main implementation
-│   ├── nqueens-env/              # Virtual environment
 │   ├── run_nqueens.sh            # Execution script
 │   ├── test_results.txt          # Comprehensive test results
 │   └── requirements.txt          # Python dependencies
@@ -40,7 +39,6 @@ SATSolving-S2025/
     │   └── comprehensive_tests.py     # Complete test coverage
     ├── demo/                     # Interactive demonstration
     │   └── presentation_demo.py       # Live presentation script
-    ├── venv/                     # Virtual environment
     └── requirements.txt          # Python dependencies
 ```
 
